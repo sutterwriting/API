@@ -10,37 +10,6 @@
       &emsp;
       <a href="http://www.plotmynovel.com/" target="blank"><img src="plottr-logo-04-cropped.png" style="size:5px"/></a>
     </div>
-    <script>
-    function createNode(element) {
-      return document.createElement(element);
-      }
-
-      function append(parent, el) {
-        return parent.appendChild(el);
-      }
-
-      const ul = document.getElementById('authors');
-      const url = 'https://sutterwriting.github.io/screenplays/';
-      fetch(url)
-      .then((resp) => resp.json())
-      .then(function(data) {
-        let authors = data.results;
-        return authors.map(function(author) {
-          let li = createNode('li'),
-              img = createNode('img'),
-              span = createNode('span');
-          img.src = author.picture.medium;
-          span.innerHTML = `${author.name.first} ${author.name.last}`;
-          append(li, img);
-          append(li, span);
-          append(ul, li);
-        })
-      })
-      .catch(function(error) {
-        console.log(JSON.stringify(error));
-      });
-
-    </script>
   </head>
   <body>
       <div style="color:#000000" class="background">
@@ -177,6 +146,20 @@
                   </br>
                   </br>
                   </br>
+                  <div class="panel-group">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <u data-toggle="collapse" style="color:#000000; cursor: pointer; cursor: hand;" href="#collapse1">Description</u>
+                        </h4>
+                      </div>
+                      <div id="collapse1" class="panel-collapse collapse">
+                        <div class="panel-body">The most elegant tool for plotting stories that you'll ever use. Plottr makes it easy to visually plot out multiple plot lines in your story so you can go from idea to ​Chapter 1, faster and easier.</div>
+                      </div>
+                    </div>
+                  </div>
+                  </br>
+                  </br>
                   </br>
                   </br>
                     <a href="http://www.plotmynovel.com/" target="blank"><img src="21950166_834852313362946_7604747951780114259_o.jpg" class="centerTable" style="size:10px"/></a>
@@ -186,7 +169,6 @@
         </div>
       </form>
       </div>
-    </form>
     <style>
     #cnt1 {
         /*background-color: rgba(250, 243, 177, 1);*/
