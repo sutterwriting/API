@@ -1,25 +1,7 @@
-<!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
-    <script type="text/javascript">
-      google.books.load();
-
-      function initialize() {
-        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-        viewer.load('ISBN:0738531367');
-      }
-
-      google.books.setOnLoadCallback(initialize);
-    </script>
-  </head>
-  <body>
-    <div id="viewerCanvas" style="width: 600px; height: 500px"></div>
-  </body>
+<!DOCTYPE html>
 <html>
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="icon" href="21950166_834852313362946_7604747951780114259_o.jpg">
     <title>Plottr Survey</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -30,7 +12,26 @@
     </div>
   </head>
   <body>
+      <script>
+      var url = "https://api.nytimes.com/svc/books/v3/lists.json";
+      url += '?' + $.param({
+        'api-key': "bfcabef849e342db8437a6a19e1b4c15",
+        'list': "fiction"
+      });
+      $.ajax({
+        url: url,
+        method: 'GET',
+      }).done(function(result) {
+        console.log(result);
+        result.results
+      }).fail(function(err) {
+        throw err;
+      });
+      </script>
       <div style="color:#000000" class="background">
+      <div id=nyt>
+
+      </div>
       <div class="container" id="cnt1">
         <div class="col-md-3">
         </div>
